@@ -1,6 +1,6 @@
-## 67-272: Chess Camp Solution to Phase 2 ##
+## 67-272: Chess Camp Solution to Phase 4 ##
 
-This is a basic solution for the course project in 67-272: Application Design and Development.  This repo contains a solution only to Phase 2 of the project and can be used to start phases 3 and 4.
+This is a basic solution for the course project in 67-272: Application Design and Development.  This repo contains a solution only to Phase 4 of the project and can be used to start phase 5.
 
 To set this up, clone this repository, run the `bundle install` command to ensure you have all the needed gems and then create the database with `rake db:migrate`.  If you want to populate the system with fictitious, but somewhat realistic data (similar to the data given in the spreadsheets in phase 1), you can run the `rake db:populate` command.  The populate script will create a series of curriculums, instructors and over 35 camps
 
