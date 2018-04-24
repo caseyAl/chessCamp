@@ -15,15 +15,48 @@ class Ability
         # they can update their own profile
         can :update, User do |u|  
             u.id == user.id
+          end
 
-        
-
+        can :index, Student do |this_student|
+          instruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
+          my_students = instruct.camps.students.map(&:id)
+          my_students.include? this_student.id 
         end
 
+        can :show, Student do |this_student|
+          instruct = User.all.map{|e| e}.select{|e| e.id == user.id}[0]
+          my_students = instruct.camps.students.map(&:id)
+          my_students.include? this_student.id 
+        end
 
+        can :read, Family do |this_family|
+          curInstruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
+          my_students = curInstruct.camps.students
+          my_fams = []
+          my_students.each do |stud|
+            my_fams += stud.family unless my_fams.include? stud.family
+          end
+          my_families = my_fams.map(&:id)
+          my_families.include? this_family.id 
+        end
 
+        elsif user.role? :Parent
+          can :show, User do |u|  
+            u.id == user.id
+          end
 
-    #     can :read, :all
+          can :read, :camps 
+          can :read, :curriculums
+
+          can :manage, Student do |this_student|
+            curFam = Family.map{|e| e}.select{|e| e.user.id == user.id}[0]
+            my_students = curFam.students.map(&:id)
+            my_students.include? this_student.id 
+          end
+
+        else #guest users
+          can :read, :camps
+          can :read, :curriculums
        end
     #
     # The first argument to `can` is the action you are giving the user

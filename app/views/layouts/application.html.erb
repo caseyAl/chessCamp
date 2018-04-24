@@ -13,7 +13,15 @@
  
   <body>
 
-    <%= render :partial => "partials/nav" %>
+    <% if logged_in? && current_user.role?(:admin) %>
+      <%= render :partial => "partials/nav" %>
+    <% elsif logged_in? && current_user.role?(:Instructor) %>
+      <%= render :partial => "partials/nav_instructor" %>
+    <% elsif logged_in? && current_user.role?(:Parent) %>
+      <%= render :partial => "partials/nav_parent" %>
+    <% else %>
+      <%= render :partial => "partials/nav_guest" %>
+    <% end %>
     
     <div class="row">
       <div class="container" id="main_content">

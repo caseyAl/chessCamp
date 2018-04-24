@@ -1,0 +1,13 @@
+<nav id="nav">
+  <div class="container">
+    <ul class="left hide-on-med-and-down">
+      <li><%= link_to 'My Account', instructor_path(current_user.instructor) %></li>
+      <li><%= link_to 'My Students', students_path %></li>
+      <li><%= link_to 'Camps', camps_path %></li>
+      <li><%= link_to 'Curriculums', curriculums_path %></li>
+    </ul>
+    <ul class="right">
+      <li><%= link_to 'Logout', logout_path %></li>
+    </ul>
+  </div>
+</nav>
