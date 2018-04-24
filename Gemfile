@@ -74,6 +74,7 @@ gem 'simple_form', '3.5.0'
 
 # authorization gem
 # gem 'cancancan'
+gem 'cancancan', '2.1.2'
 
 # Materialize and UI gems
 gem 'materialize-sass', '0.100.2'
