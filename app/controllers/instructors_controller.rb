@@ -1,4 +1,4 @@
-class InstructorsController < ApplicationController
+class InstructorsController < ApplicationController 
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
 
   def index

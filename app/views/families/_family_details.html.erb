@@ -1,0 +1,9 @@
+ <h3><%= @family.family_name %></h3>
+
+<h5>Basic Information</h5>
+<p><strong>Parent First Name: </strong><%= @family.parent_first_name %></p>
+<p><strong>Email: </strong><%= @family.user.email %></p>
+<p><strong>Phone: </strong><%= number_to_phone @family.user.phone %></p>
+<p><strong>Active:</strong>
+  <%= @family.active ? "Yes" : "No" %>
+</p>

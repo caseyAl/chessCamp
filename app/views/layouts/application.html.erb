@@ -11,13 +11,14 @@
     <%= csrf_meta_tags %>
   </head>
  
-  <body>
+  <body> 
 
     <% if logged_in? && current_user.role?(:admin) %>
       <%= render :partial => "partials/nav" %>
-    <% elsif logged_in? && current_user.role?(:Instructor) %>
+    <% elsif logged_in? && current_user.role?(:instructor) %>
       <%= render :partial => "partials/nav_instructor" %>
-    <% elsif logged_in? && current_user.role?(:Parent) %>
+
+    <% elsif logged_in? && current_user.role?(:parent) %>
       <%= render :partial => "partials/nav_parent" %>
     <% else %>
       <%= render :partial => "partials/nav_guest" %>
@@ -38,3 +39,4 @@
 
   </body>
 </html>
+ 

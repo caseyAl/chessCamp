@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :instructors
   resources :locations
   resources :curriculums
+  resources :students
+  resources :families
 
 
 
