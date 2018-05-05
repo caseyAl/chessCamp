@@ -57,6 +57,7 @@ class Ability
         else #guest users
           can :read, :camps
           can :read, :curriculums
+         
        end
     #
     # The first argument to `can` is the action you are giving the user

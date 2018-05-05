@@ -10,22 +10,60 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require rails-ujs
-//= require materialize-sprockets
-//= require materialize-form
-//= require_tree .
+// = require rails-ujs
+// = require jquery
+// = require materialize-sprockets
+// = require materialize-form
 
-// $( document ).ready(function () {
-//     $('select').material_select();
-//     $('.datepicker').pickadate({
-//     format: 'mmmm dd, yyyy',
-//     formatSubmit: 'mmmm dd, yyyy',
-//     selectMonths: true, // Creates a dropdown to control month
-//     selectYears: 15, // Creates a dropdown of 15 years to control year,
-//     today: 'Today',
-//     clear: 'Clear',
-//     close: 'Ok',
-//     closeOnSelect: false // Close upon selecting a date,
-//   });
-// });
+//= require best_in_place
+// = require_tree .
+
+// @import "materialize";
+// @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+$( document ).ready(function () {
+    $('select').material_select();
+    $('.datepicker').pickadate({
+    format: 'mmmm dd, yyyy',
+    formatSubmit: 'mmmm dd, yyyy',
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+});
+
+ 
+
+
+$(document).ready(function(){
+  // MODAL
+  $('.modal').modal();
+  // DROPDOWNS
+  $(".dropdown-button").dropdown(
+    {
+      belowOrigin: true
+    }
+  );
+  // TABS
+  $('ul.tabs').tabs();
+  // SCROLLSPY
+  $('.scrollspy').scrollSpy();
+  //SIDENAV
+  $(".button-collapse").sideNav();
+});
+
+ 
+
+
+
+
+
+
+
+
+
+
+

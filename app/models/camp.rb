@@ -41,6 +41,7 @@ class Camp < ApplicationRecord
     self.curriculum.name
   end
 
+
   def already_exists?
     Camp.where(time_slot: self.time_slot, start_date: self.start_date, location_id: self.location_id).size == 1
   end

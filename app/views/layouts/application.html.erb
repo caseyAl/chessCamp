@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>A&M Chess Camp :: <%= controller.controller_name.capitalize %></title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+      <!--Import Google Icon Font-->
     <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <% javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Nunito|Varela+Round" %>
   </head>
  
-  <body> 
 
     <% if logged_in? && current_user.role?(:admin) %>
       <%= render :partial => "partials/nav" %>
@@ -22,6 +24,7 @@
       <%= render :partial => "partials/nav_parent" %>
     <% else %>
       <%= render :partial => "partials/nav_guest" %>
+      
     <% end %>
     
     <div class="row">
@@ -34,6 +37,7 @@
     <footer>
       <div class="center-align" id="footer">
         <%= render partial: 'partials/footer' %>
+        <%= javascript_include_tag 'application' %> 
       </div>
     </footer> 
 

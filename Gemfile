@@ -77,6 +77,7 @@ gem 'simple_form', '3.5.0'
 gem 'cancancan', '2.1.2'
 
 # Materialize and UI gems
+gem 'best_in_place', '~> 3.0.1'
 gem 'materialize-sass', '0.100.2'
 gem 'materialize-form', '1.0.8'
 gem 'jquery-rails', '4.3.1'

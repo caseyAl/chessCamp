@@ -29,3 +29,44 @@
   background-color: #e53935;
   color: #fff;
 }
+
+#withBackground {
+	 
+	 
+	 width: 100%;
+	 margin: 0;
+	 padding: 0;
+
+}
+
+
+
+
+
+
+
+#guestBod {
+	background-image: url('second.jpg');
+	    /* Set a specific height */
+    height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 500px;
+}
+
+
+
+
+
+
