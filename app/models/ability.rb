@@ -7,7 +7,7 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.role? :admin
          can :manage, :all
-       elsif user.role?, :Instructor
+       elsif user.role? :Instructor
         can :read, :curriculums
         can :read, :locations
         can :read, :camps
@@ -57,6 +57,7 @@ class Ability
         else #guest users
           can :read, :camps
           can :read, :curriculums
+          can :create, User
          
        end
     #

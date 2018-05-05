@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  #authorize_resource
   def new
   end
   

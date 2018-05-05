@@ -65,8 +65,33 @@
     height: 500px;
 }
 
+        .tabs .tab a{
+            color:black;
+        } /*Black color to the text*/
+
+        .tabs .tab a:hover {
+            background-color:#eee;
+            color: black;
+        } /*Text color on hover*/
+
+        .tabs .tab a.active {
+            background-color:white;
+            color:black;
+        } /*Background and text color when a tab is active*/
+
+        .tabs .indicator {
+            background-color:black;
+        } /*Color of underline*/
 
 
 
 
+#newTitle {
+  text-align: center;
+  color: white;
+}
+
+#ill{
+  -webkit-transition: all 0.5s ease;
+}
 

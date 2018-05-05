@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  #before_action :check_login
   authorize_resource
 
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @users = User.all.paginate(page: params[:page]).per_page(15)
   end
 
-  def new
+  def new 
     @user = User.new
   end
 
@@ -20,8 +20,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #@user.role = "assistant" if current_user.role?(:assistant)
     if @user.save
-      flash[:notice] = "Successfully added #{@user.proper_name} as a user."
-      redirect_to users_url
+      flash[:notice] = "Welcome #{@user.proper_name}, One more Step!."
+      redirect_to new_family_path
     else
       render action: 'new'
     end

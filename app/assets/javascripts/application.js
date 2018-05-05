@@ -52,9 +52,12 @@ $(document).ready(function(){
   // SCROLLSPY
   $('.scrollspy').scrollSpy();
   //SIDENAV
-  $(".button-collapse").sideNav();
+  //$(".button-collapse").sideNav();
 });
 
+$(document).ready(function() {
+   $('#ill').localScroll({duration:800});
+});
  
 
 

@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController 
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource
   def index
   	@students = Student.all.alphabetical.paginate(:page => params[:page]).per_page(12)
   end
