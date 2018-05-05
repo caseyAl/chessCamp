@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   #before_action :check_login
   authorize_resource
 
@@ -20,9 +21,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #@user.role = "assistant" if current_user.role?(:assistant)
     if @user.save
-      flash[:notice] = "Welcome #{@user.proper_name}, One more Step!."
-      redirect_to new_family_path
+      if !logged_in?
+        session[:user_id] = @user.id 
+        flash[:notice] = "Welcome #{@user.username}, One more Step!."
+        redirect_to new_family_path
+      else
+        redirect_to user_path(@user), notce: "Successfully created user!"
+      end
     else
+      flash[:error] = "This user could not be created."
       render action: 'new'
     end
   end
@@ -50,7 +57,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :password_digest, :role, :email, :phone, :active)
+      params.require(:user).permit(:username, :password, :password_confirmation, :role, :email, :phone, :active)
     end
 
 end

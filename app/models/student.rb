@@ -20,6 +20,7 @@ class Student < ApplicationRecord
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :below_rating, ->(ceiling) { where('rating < ?', ceiling) }
   scope :at_or_above_rating, ->(floor) { where('rating >= ?', floor) }
+  scope :for_fam, -> (family_id) {where('family_id = ?', family_id)}
 
   # callbacks
   before_save :set_unrated_to_zero

@@ -151,6 +151,22 @@ namespace :db do
     sarah.active = true
     sarah.save!
 
+    mama_user = User.new
+    mama_user.role = "parent"
+    mama_user.password = "secret"
+    mama_user.password_confirmation = "secret"
+    mama_user.username = "may"
+    mama_user.email = 'may@gmail.com' 
+    mama_user.phone = "2164137864"
+    mama_user.active = true
+    mama_user.save!
+    mama = Family.new
+    mama.family_name = "aldaddy"
+    mama.parent_first_name = "May"
+    mama.user_id = mama_user.id 
+    mama.active = true
+    mama.save!
+
     lead_instructors = [mark,alex,becca,sarah]
     assistants = [jordan,rick,connor]
     puts "Created instructors and users"

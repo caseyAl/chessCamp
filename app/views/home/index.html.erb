@@ -23,13 +23,17 @@
 						<% else %> 
 							<td> No </td>
 						<% end %>
-					</tr>
+					</tr> 
 				<% end %>
 				
 			</tbody>
 		</table>
 
 	<% end %>
+
+<% elsif logged_in? && current_user.role?(:parent) %>
+	<%= render :partial => "partials/parentHome" %>
+	
 
 <% else %> 
 	<%= render :partial => "partials/guestHome" %>

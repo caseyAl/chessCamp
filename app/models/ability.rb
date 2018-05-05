@@ -58,6 +58,7 @@ class Ability
           can :read, :camps
           can :read, :curriculums
           can :create, User
+          can :create, Family
          
        end
     #

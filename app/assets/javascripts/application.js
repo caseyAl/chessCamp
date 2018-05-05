@@ -61,7 +61,9 @@ $(document).ready(function() {
  
 
 
-
+  $(document).ready(function(){
+    $('.tap-target').tapTarget();
+  });
 
 
 

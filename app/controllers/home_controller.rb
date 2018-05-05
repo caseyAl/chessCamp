@@ -9,6 +9,13 @@ class HomeController < ApplicationController
   			@students += c.students
   		end
       @students.paginate(:page => params[:page], :per_page => 10)
+    elsif (logged_in? && current_user.role?(:parent))
+      @fam = Family.for_user(current_user.id).to_a[0]
+      @upcomingCamps = Camp.upcoming.alphabetical.paginate(:page => params[:upcomingCamps]).per_page(10)
+      @currics = Curriculum.active.alphabetical.paginate(:page => params[:currics]).per_page(10)
+      @kids = Student.for_fam(@fam.id)
+
+      
     else
       @upcomingCamps = Camp.upcoming.alphabetical.paginate(:page => params[:upcomingCamps]).per_page(10)
       @currics = Curriculum.active.alphabetical.paginate(:page => params[:currics]).per_page(10)

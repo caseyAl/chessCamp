@@ -10,6 +10,7 @@ class Family < ApplicationRecord
 
   # scopes
   scope :alphabetical, -> { order('family_name') }
+  scope :for_user, -> (uid){where('user_id = ?', uid)}
 
   # validations
   validates_presence_of :family_name, :parent_first_name

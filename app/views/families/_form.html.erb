@@ -1,16 +1,38 @@
-<%= simple_form_for(@family) do |f| %>
-  <%= f.error_notification %>
-  <div class="row">
-    <div class="form-inputs">
-      <%= f.input :family_name, label_html: { class: 'active' } %>
-      <%= f.input :parent_first_name, label_html: { class: 'active' } %>
-      <%= f.input :user_id, label_html: { class: 'active' } %>
-      <%= f.input :active %>
+<% if logged_in? && current_user.role?(:admin) %>
+  <%= simple_form_for(@family) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="form-inputs">
+        <%= f.input :family_name, label_html: { class: 'active' } %>
+        <%= f.input :parent_first_name, label_html: { class: 'active' } %>
+        <%= f.input :user_id, label_html: { class: 'active' } %>
+        <%= f.input :active %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="form-actions col s8">
-      <%= f.button :submit %>
+    <div class="row">
+      <div class="form-actions col s8">
+        <%= f.button :submit %>
+      </div>
     </div>
-  </div>
+  <% end %>
+
+<% else %>
+  <%= simple_form_for(@family) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="form-inputs">
+        <%= f.input :family_name, label_html: { class: 'active' } %>
+        <%= f.input :parent_first_name, label_html: { class: 'active' } %>
+        <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+        <%= f.input :active %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-actions col s8">
+        <%= f.button :submit %>
+      </div>
+    </div>
+    <% end %>
+  
+
 <% end %>

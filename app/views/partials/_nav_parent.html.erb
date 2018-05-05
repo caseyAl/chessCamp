@@ -1,8 +1,8 @@
 <nav id="nav">
   <div class="container">
     <ul class="left hide-on-med-and-down">
-      <li><%= link_to 'My Account', family_path(current_user.family) %></li>
-      <li><%= link_to 'My Students', pets_path %></li>
+      <li><%= link_to 'My Account', families_path(@fam) %></li>
+      <li><%= link_to 'My Students', students_path %></li>
     </ul>
     <ul class="right">
       <li><%= link_to 'Logout', logout_path %></li>
