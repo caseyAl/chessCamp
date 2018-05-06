@@ -9,7 +9,7 @@ class Ability
          can :manage, :all
        elsif user.role? :Instructor
         can :read, :curriculums
-        can :read, :locations
+        can :read, :locations 
         can :read, :camps
 
         # they can update their own profile
@@ -47,6 +47,7 @@ class Ability
 
           can :read, :camps 
           can :read, :curriculums
+          can :show, :camps
 
           can :manage, Student do |this_student|
             curFam = Family.map{|e| e}.select{|e| e.user.id == user.id}[0]
