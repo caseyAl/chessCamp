@@ -1,30 +1,33 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user) 
     # Define abilities for the passed in user here. For example:
     #
        user ||= User.new # guest user (not logged in)
        if user.role? :admin
          can :manage, :all
-       elsif user.role? :Instructor
-        can :read, :curriculums
-        can :read, :locations 
-        can :read, :camps
+
+       elsif user.role? :instructor
+        can :read, Curriculum
+        can :show, Curriculum
+        can :read, Location
+        can :show, Location
+        can :read, Camp 
+        can :show, Camp 
+
+        can :update, Instructor do |i|
+          instruct = User.all.map{|e| e}.select{|e| e.id == user.id}[0]
+          i.id == instruct.id 
+        end
 
         # they can update their own profile
         can :update, User do |u|  
             u.id == user.id
           end
 
-        can :index, Student do |this_student|
-          instruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
-          my_students = instruct.camps.students.map(&:id)
-          my_students.include? this_student.id 
-        end
-
         can :show, Student do |this_student|
-          instruct = User.all.map{|e| e}.select{|e| e.id == user.id}[0]
+          instruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
           my_students = instruct.camps.students.map(&:id)
           my_students.include? this_student.id 
         end
@@ -40,24 +43,35 @@ class Ability
           my_families.include? this_family.id 
         end
 
-        elsif user.role? :Parent
+        elsif user.role? :parent
+          can :read, Curriculum
+          can :show, Curriculum
+          can :read, Camp 
+          can :show, Camp
+          can :create, Family
+
           can :show, User do |u|  
             u.id == user.id
           end
 
-          can :read, :camps 
-          can :read, :curriculums
-          can :show, :camps
-
-          can :manage, Student do |this_student|
-            curFam = Family.map{|e| e}.select{|e| e.user.id == user.id}[0]
+          can :update, Student do |this_student|
+            curFam = Family.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
             my_students = curFam.students.map(&:id)
             my_students.include? this_student.id 
           end
 
+          can :show, Student do |this_student|
+            curFam = Family.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
+            my_students = curFam.students.map(&:id)
+            my_students.include? this_student.id 
+          end
+
+
         else #guest users
-          can :read, :camps
-          can :read, :curriculums
+          can :read, Camp
+          can :read, Curriculum
+          can :show, Camp 
+          can :show, Curriculum
           can :create, User
           can :create, Family
          

@@ -43,7 +43,7 @@ Vue.component('instructor-row', {
   created() {
     this.camp_id = $('#camp_id').val();
   },
-
+    
   methods: {
     remove_record: function(instructor){
       run_ajax('DELETE', {instructor: instructor}, '/camps/'.concat(this.camp_id, '/instructors/',instructor['id'],'.json'));

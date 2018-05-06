@@ -13,7 +13,9 @@ class HomeController < ApplicationController
       @fam = Family.for_user(current_user.id).to_a[0]
       @upcomingCamps = Camp.upcoming.alphabetical.paginate(:page => params[:upcomingCamps]).per_page(10)
       @currics = Curriculum.active.alphabetical.paginate(:page => params[:currics]).per_page(10)
-      @kids = Student.for_fam(@fam.id).alphabetical.paginate(:page => params[:page]).per_page(12)
+      unless @fam == nil
+        @kids = Student.for_fam(@fam.id).alphabetical.paginate(:page => params[:page]).per_page(12)
+      end
 
       
     else
@@ -33,4 +35,4 @@ class HomeController < ApplicationController
   def privacy
   end
   
-end
+end 

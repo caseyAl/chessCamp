@@ -86,7 +86,7 @@
 		    <div class="col s4 m4">
 		      <div class="card-panel teal">
 					    <h4> My Students </h4>
-					        <% if @kids.empty? %>
+					        <% if @kids == nil || @kids.empty? %>
 			  <h3>You haven't registered any students yet </h3>
 			<% else %>
 			  <table>
