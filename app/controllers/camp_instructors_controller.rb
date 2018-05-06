@@ -24,7 +24,7 @@ class CampInstructorsController < ApplicationController
     instructor_id = params[:instructor_id]
     @camp_instructor = CampInstructor.where(camp_id: camp_id, instructor_id: instructor_id).first
     unless @camp_instructor.nil?
-      @camp_instructor.nil?
+      @camp_instructor.destroy
       flash[:notice] = "Successfully removed this instructor."
     end
 

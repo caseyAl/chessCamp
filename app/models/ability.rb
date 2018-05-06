@@ -28,7 +28,11 @@ class Ability
 
         can :show, Student do |this_student|
           instruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
-          my_students = instruct.camps.students.map(&:id)
+          my_camps = instruct.camps
+          my_students= []
+          my_camps.each do |camp| 
+              my_students += camp.students  
+            end
           my_students.include? this_student.id 
         end
 
