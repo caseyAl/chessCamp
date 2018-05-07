@@ -1,0 +1,35 @@
+<%= session[:cart] %>
+
+<%= @total_cost %>
+
+<% if session[:cart].nil? || session[:cart].empty? %>
+  <h3>Cart Empty</h3>
+<% else %>
+  <h3>Cart Items </h3>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Student </th>
+      <th> Camp Name </th>
+      <th> Date </th>
+      <th> Cost </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% session[:cart].each do |ci| %>
+      <tr>
+        <td><%= ci["student_name"] %></td>
+        <td><%= ci["camp_name"] %></td>
+        <td><%= ci["date"] %></td>
+        <td><%= ci["cost"] %></td></td>
+        <td><%= link_to "remove", remove_from_cart_path(student_id: ci["ids"][1],camp_id: ci["ids"][0]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+

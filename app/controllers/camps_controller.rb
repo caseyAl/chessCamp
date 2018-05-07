@@ -8,6 +8,9 @@ class CampsController < ApplicationController
 
   def show
     @instructors = @camp.instructors.alphabetical
+    @parent = Family.all.select{|e| e.user_id == current_user.id}[0]
+    @allKids = @parent.students
+    @kidsregs = @camp.students.all.select{|e| @allKids.include? e}
   end
 
   def edit

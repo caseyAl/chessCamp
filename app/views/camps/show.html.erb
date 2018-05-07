@@ -16,8 +16,14 @@
     </div>
   </div>
 
-  <% else %>
-    <%= render :partial => "partials/parent_camp" %>
+<% else %>
+    <div class="row">
+      <%= render :partial => "partials/parent_camp" %>
+      <div class="col m6 s6">  
+        <%= render :partial => "camp_students_vue" %>
+      </div>
+    </div>
 
-  <% end %>
+<% end %>
 
+ 

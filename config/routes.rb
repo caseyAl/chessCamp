@@ -17,8 +17,13 @@ Rails.application.routes.draw do
   resources :curriculums
   resources :students
   resources :families
+  resources :registrations
+  resources :carts
 
 
+
+  get 'add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
+  get 'remove_from_cart', to: 'carts#remove_from_cart', as: :remove_from_cart
 
   # Routes for managing camp instructors
   get 'user/edit' => 'users#edit', :as => :edit_current_user
@@ -34,5 +39,7 @@ Rails.application.routes.draw do
   get 'camps/:id/instructors', to: 'camps#instructors', as: :camp_instructors
   post 'camps/:id/instructors', to: 'camp_instructors#create', as: :create_instructor
   delete 'camps/:id/instructors/:instructor_id', to: 'camp_instructors#destroy', as: :remove_instructor
+
+
 end
 

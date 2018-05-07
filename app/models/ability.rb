@@ -53,6 +53,8 @@ class Ability
           can :read, Camp 
           can :show, Camp
           can :create, Family
+          can :create, Registration
+
 
           can :show, User do |u|  
             u.id == user.id
