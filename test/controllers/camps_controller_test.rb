@@ -9,7 +9,7 @@ class CampsControllerTest < ActionDispatch::IntegrationTest
 
   teardown do
     delete_camps
-    delete_locations
+    delete_locations 
     delete_curriculums
   end
   

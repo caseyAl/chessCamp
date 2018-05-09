@@ -28,7 +28,7 @@ class Registration < ApplicationRecord
 
   # other methods
   def pay
-    return false unless self.payment.nil?
+    return false unless self.payment.nil? 
     generate_payment_receipt
     self.save!
     self.payment

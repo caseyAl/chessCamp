@@ -66,8 +66,19 @@ $(document).ready(function() {
   });
 
 
+// Flash fade
+$(function() {
+   $('.alert-box').fadeIn('normal', function() {
+      $(this).delay(3700).fadeOut();
+   });
+});
 
 
+
+// Best in place functionality
+$(document).ready(function() {
+  jQuery(".best_in_place").best_in_place();
+});
 
 
 

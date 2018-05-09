@@ -29,7 +29,7 @@ class Family < ApplicationRecord
 
   private
   def handle_family_being_made_inactive
-    if self.active == false
+    if self.active == false 
       terminate_upcoming_registrations
       make_students_inactive
     end

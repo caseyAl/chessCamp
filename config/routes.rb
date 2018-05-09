@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   get 'add_to_cart', to: 'carts#add_to_cart', as: :add_to_cart
   get 'remove_from_cart', to: 'carts#remove_from_cart', as: :remove_from_cart
+  get 'input_cc', to: 'carts#input_cc', as: :input_cc
+  get 'pay_for_cart', to: 'carts#pay_for_cart', as: :pay_for_cart
+  get 'confirm_payment', to: 'carts#confirm_payment', as: :confirm_payment
 
   # Routes for managing camp instructors
   get 'user/edit' => 'users#edit', :as => :edit_current_user
@@ -39,6 +42,7 @@ Rails.application.routes.draw do
   get 'camps/:id/instructors', to: 'camps#instructors', as: :camp_instructors
   post 'camps/:id/instructors', to: 'camp_instructors#create', as: :create_instructor
   delete 'camps/:id/instructors/:instructor_id', to: 'camp_instructors#destroy', as: :remove_instructor
+
 
 
 end

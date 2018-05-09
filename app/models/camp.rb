@@ -10,7 +10,7 @@ class Camp < ApplicationRecord
   has_many :instructors, through: :camp_instructors
   has_many :registrations
   has_many :students, through: :registrations
-
+ 
   # validations
   validates_presence_of :curriculum_id, :time_slot, :start_date, :location_id
   validates_numericality_of :cost, greater_than_or_equal_to: 0

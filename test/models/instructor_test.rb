@@ -21,7 +21,7 @@ class InstructorTest < ActiveSupport::TestCase
       delete_instructors
       delete_users
     end
-
+ 
     should "show that there are three instructors in alphabetical order" do
       assert_equal ["Alex", "Mark", "Rachel"], Instructor.alphabetical.all.map(&:first_name)
     end

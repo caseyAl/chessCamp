@@ -3,7 +3,7 @@
   <div class="card indigo lighten-2">
     <div class="card-content white-text">
       <span class="card-title">Camp Students</span>
-      <% if @kidsregs.empty? %>
+      <% if @students.empty? == false %>
       <p>No students registered at this time</p>
       <% else %>
         <ul is='student-row' 
@@ -11,7 +11,7 @@
             v-bind:student="student"
             class="no_bullet">  
         </ul>
-      <% end %>
+      <% end %> 
       <div class="card-action">
       <%# link_to "Add a new instructor", "#" %>
       <%= link_to "Add a new student", "#", {%s(v-on:click) => "switch_modal()"} %>

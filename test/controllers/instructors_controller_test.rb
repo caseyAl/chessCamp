@@ -28,7 +28,7 @@ class InstructorsControllerTest < ActionDispatch::IntegrationTest
   #     post instructors_path, params: { instructor: { first_name: "Eric", last_name: @mark.last_name, email: "eheimann@example.com", active: @mark.active } }
   #   end
   #   assert_redirected_to instructor_path(Instructor.last)
-  # end
+  # end 
 
   # test "should not create a new instructor with invalid params" do
   #   post instructors_path, params: { instructor: { first_name: nil, last_name: nil, phone: @mark.phone, email: "eheimann@example.com", active: @mark.active } }

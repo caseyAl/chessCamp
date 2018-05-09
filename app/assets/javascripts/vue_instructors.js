@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////
 //// Setting up a general ajax method to handle
 //// transfer of data between client and server
-////////////////////////////////////////////////
+//////////////////////////////////////////////// 
 function run_ajax(method, data, link, callback=function(res){instructors.get_instructors()}){
   $.ajax({
     method: method,
@@ -16,7 +16,7 @@ function run_ajax(method, data, link, callback=function(res){instructors.get_ins
       instructors.errors = res.responseJSON;
     }
   })
-}
+} 
 
 ///////////////////////////////////////////////////////
 //// A component to create a camp instructor list item

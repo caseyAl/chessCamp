@@ -17,7 +17,7 @@ function run_ajax(method, data, link, callback=function(res){students.get_studen
     }
   })
 }
-
+ 
 ///////////////////////////////////////////////////////
 //// A component to create a camp instructor list item
 ///////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ var new_form = Vue.component('new-student-form', {
         errors: {}
     }
   },
-
+ 
   methods: {
     submitForm: function (x) {
       new_post = {

@@ -10,7 +10,7 @@ class CreditCard
   attr_reader :number, :type
   
   # def expiration
-  #   "#{@expiration_month}/#{@expiration_year}"
+  #   "#{@expiration_month}/#{@expiration_year}" 
   # end
   
   def expired?
@@ -29,4 +29,4 @@ class CreditCard
   def valid?
     !expired? and !@type.nil?
   end
-end
+end 

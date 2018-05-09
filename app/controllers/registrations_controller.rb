@@ -9,12 +9,18 @@ class RegistrationsController < ApplicationController
   
   def create
     @registration = Registration.new(registration_params)
+    #@registration.credit_card_number = params[:credit_card_number]
+    #@registration.expiration_year = params[:expiration_year]
+    #@registration.expiration_month = params[:expiration_month]
+    #credit_card_number_is_valid
+    #expiration_date_is_valid
+    #@registration.pay
     if @registration.save
       flash[:notice] = "Successfully registered for camp"
       redirect_to camp_path(@camp)
     else
       render action: 'new'
-    end
+    end 
   end
 
  

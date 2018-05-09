@@ -40,6 +40,10 @@ class Student < ApplicationRecord
   after_rollback :convert_to_inactive_and_remove_registrations
 
   # other methods
+  def self.for_camp(camp)
+    camp.students
+  end
+  
   def name
     "#{self.last_name}, #{self.first_name}"
   end
