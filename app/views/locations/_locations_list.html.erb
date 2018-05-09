@@ -20,7 +20,7 @@
           <td><%= link_to location.name, location %></td>
           <td><%= render :partial => "partials/address_info", locals: {location: location} %></td>
           <td><%= location.max_capacity %></td>
-          <td><%= link_to 'Edit', edit_location_path(location), :class=>"btn waves-effect waves-light" %></td>
+          <td><%= link_to 'Edit', edit_location_path(location), :class=>"btn waves-effect waves-light blue" %></td>
         </tr>
       <% end %>
     </tbody>

@@ -13,9 +13,11 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @fam = Family.all.select{|e| e.user_id == current_user.id}[0]
   end
 
   def create
+    @fam = Family.all.select{|e| e.user_id == current_user.id}[0]
   	@student = Student.new(student_params)
   	if @student.save
   		redirect_to student_path(@student), notice: "#{@student.first_name} #{@student.last_name} was added to the system"
@@ -25,6 +27,7 @@ class StudentsController < ApplicationController
   end
 
   def update
+    @fam = Family.all.select{|e| e.user_id == current_user.id}[0]
   	if @student.update(student_params)
   		redirect_to student_path(@student), notice: "#{@student.first_name} #{@student.last_name} was revised in the system"
   	else

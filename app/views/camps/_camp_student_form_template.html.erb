@@ -10,7 +10,7 @@
         <%= f.error_notification %>
         <div class="row">
           <div class="form-inputs">
-            <%= f.input :student_id, collection: @allKids, include_blank: true %>
+            <%= f.input :student_id, collection: @allKids.select{|e| e.rating <= @camp.curriculum.max_rating && e.rating >= @camp.curriculum.min_rating}, include_blank: true %>
             <%= f.input :camp_id, as: :hidden, input_html: { value: @camp.id } %>
           </div>
         </div>
@@ -21,6 +21,6 @@
         </div>
       <% end %>
     </div>
-  </div>
+  </div> 
 
 </div> 

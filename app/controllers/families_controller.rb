@@ -1,4 +1,5 @@
 class FamiliesController < ApplicationController 
+	include AppHelpers::Cart
 	before_action :set_family, only: [:show, :edit, :update, :destroy]
 	authorize_resource
 	def index
@@ -9,7 +10,7 @@ class FamiliesController < ApplicationController
 		@students = @family.students.alphabetical.paginate(:page => params[:page]).per_page(10)
 	end
 
-	def edit
+	def edit 
 	end
 
 	def new
@@ -19,7 +20,12 @@ class FamiliesController < ApplicationController
 	def create
 		@family = Family.new(family_params)
 		if @family.save
-			redirect_to family_path(@family), notice: "The #{@family.family_name}s were added to the system"
+			if logged_in? && current_user.role?(:admin)
+				redirect_to family_path(@family), notice: "The #{@family.family_name}s were added to the system"
+			else
+				create_cart
+				redirect_to home_path
+			end
 		else
 			render action: 'new'
 		end

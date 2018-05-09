@@ -17,9 +17,9 @@
   <tbody>
     <% @registrations.each do |registration| %>
       <tr>
-        <td><%= link_to registration.student.proper_name, student_path(registration.student) %></td>
-        <td><%= link_to registration.camp.name, camp_path(registration.camp) %></td>
-        <td><%= link_to 'Edit', edit_registration_path(registration), :class=>"btn waves-effect waves-light purple" %></td>
+        <td><a class= "blue-text"<%= link_to registration.student.proper_name, student_path(registration.student) %></a></td>
+        <td><a class="blue-text"<%= link_to registration.camp.name, camp_path(registration.camp) %></a></td>
+        <td><%= link_to 'Edit', edit_registration_path(registration), :class=>"btn waves-effect waves-light blue" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +31,5 @@
 
     <% end %>
 
-<%= link_to 'New Registration', new_registration_path %>
+<hr>
+<%= link_to 'New Registration', new_registration_path, :class=>"btn waves-effect waves-light blue"  %>

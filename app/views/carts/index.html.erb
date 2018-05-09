@@ -1,6 +1,6 @@
-<%= session[:cart] %>
 
-<%= @total_cost %>
+
+
 
 <% if session[:cart].nil? || session[:cart].empty? %>
   <h3>Cart Empty</h3>
@@ -22,17 +22,29 @@
     <% session[:cart].each do |ci| %>
       <tr>
         <td><%= ci["student_name"] %></td>
-        <td><%= ci["camp_name"] %></td>
+        <td><%= ci["camp_name"] %></td> 
         <td><%= ci["date"] %></td>
         <td><%= ci["cost"] %></td></td>
-        <td><%= link_to "remove", remove_from_cart_path(student_id: ci["ids"][1],camp_id: ci["ids"][0]) %></td>
+        <td><%= link_to 'Remove',remove_from_cart_path(student_id: ci["ids"][1],camp_id: ci["ids"][0]) , :class=>"btn waves-effect waves-light red" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+<hr>
+
+<div class="row">
+  <p><%= link_to "Checkout", input_cc_path, :class => "btn waves-effect waves-light green left"%></p>
+    <div class="col s12 m5">
+      <div class="card-panel grey right">
+        <span class="white-text"> Total: <%= @total_cost %> </span>
+      </div>
+    </div>
+
+  
+</div>
 <% end %>
 
-
-<p> <%= link_to "checkout", input_cc_path %> </p>
 
 

@@ -1,28 +1,32 @@
-<div class="col s12 m6">
-  <div class="card indigo lighten-2">
-    <div class="card-content white-text"> 
-      <span class="card-title">Registered Students</span>
-      <table>
-      <thead>
-        <tr>
-          <th> Name </th>
-          <th> Rating </th>
-          <th> Date of Birth </th>
-          <th> Active </th>
-        </tr>
-      </thead>
-
-      <tbody>
-         <%= @students.each do |student| %>
+<% if @students.empty? %>
+    <p> This family has no registered students yet </p>
+<% else %>
+  <div class="col s12 m6">
+    <div class="card indigo lighten-2">
+      <div class="card-content white-text"> 
+        <span class="card-title">Registered Students</span>
+        <table>
+        <thead>
           <tr>
-            <td> <%= student.proper_name %></td>
-            <td> <%= student.rating %></td>
-            <td> <%= student.date_of_birth %></td>
-            <td> <%= @family.active ? "Yes" : "No" %> </td>
+            <th> Name </th>
+            <th> Rating </th>
+            <th> Date of Birth </th>
+            <th> Active </th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+           <%= @students.each do |student| %>
+            <tr>
+              <td> <%= student.proper_name %></td>
+              <td> <%= student.rating %></td>
+              <td> <%= student.date_of_birth %></td>
+              <td> <%= @family.active ? "Yes" : "No" %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
     </div>
-  </div>
-</div> 
+  </div> 
+<% end %>

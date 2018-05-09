@@ -43,6 +43,7 @@ class CartsController < ApplicationController
 					flash[:notice] = "Student was registered!"
 					@reg.save!
 					@reg.pay 
+					clear_cart
 					redirect_to home_path
 				else
 					flash[:notice] = "student cannot be registered"

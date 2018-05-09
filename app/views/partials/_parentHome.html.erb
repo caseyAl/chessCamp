@@ -31,7 +31,7 @@
 				  <tbody>
 				    <% @upcomingCamps.each do |camp| %>
 				      <tr>
-				        <td><a class="grey-text"<%= link_to camp.curriculum.name, camp %></a></td>
+				        <td><a class="purple-text"<%= link_to camp.curriculum.name, camp %></a></td>
 				        <td><%= camp.start_date.strftime("%m/%d/%y") %></td>
 				        <td><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
 				        <td><% camp.max_students - camp.registrations.count %></td>
@@ -65,7 +65,7 @@
 		  <tbody>
 		    <% @currics.each do |curriculum| %>
 		      <tr>
-		        <td><a class= "grey-text" <%= link_to curriculum.name, curriculum %></a></td>
+		        <td><a class= "purple-text" <%= link_to curriculum.name, curriculum %></a></td>
 		        <td><%= curriculum.min_rating == 0 ? "Unrated" : curriculum.min_rating %> - <%= curriculum.max_rating %></td>
 		      </tr>
 		    <% end %>
@@ -74,7 +74,7 @@
 
 		    <% end %>
 
-
+ 
       	
 
       		</div>  
@@ -87,7 +87,8 @@
 		      <div class="card-panel white">
 					    <h4> My Students </h4>
 					        <% if @kids == nil || @kids.empty? %>
-			  <h3>You haven't registered any students yet </h3>
+			  <p>You haven't registered any students yet </p>
+			  <td><%= link_to 'Add Student', new_student_path, :class=>"btn waves-effect waves-light purple" %></td>
 			<% else %>
 			  <table>
 			  <thead>
@@ -100,10 +101,11 @@
 			  <tbody>
 			    <% @kids.each do |student| %>
 			      <tr>
-			        <td><a class="grey-text"<%= link_to student.name, student %></a></td>
+			        <td><a class="purple-text"<%= link_to student.name, student %></a></td>
 			        <td><%= link_to 'Edit', edit_student_path(student), :class=>"btn waves-effect waves-light purple" %></td>
 			      </tr>
 			    <% end %>
+			    <td><%= link_to 'Add Student', new_student_path, :class=>"btn waves-effect waves-light purple" %></td>
 			  </tbody>
 			</table>
 

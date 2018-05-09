@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   #before_action :check_login
   authorize_resource
-
+ 
   def index
     # finding all the active owners and paginating that list (will_paginate)
     @users = User.all.paginate(page: params[:page]).per_page(15)
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     #@user.role = "assistant" if current_user.role?(:assistant)
     if @user.save
-      if !logged_in?
+      if !logged_in? 
         session[:user_id] = @user.id 
         flash[:notice] = "Welcome #{@user.username}, One more Step!."
         redirect_to new_family_path
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:notice] = "Successfully updated #{@user.proper_name}."
+      flash[:notice] = "Successfully updated #{@user.username}."
       redirect_to users_url
     else
       render action: 'edit'

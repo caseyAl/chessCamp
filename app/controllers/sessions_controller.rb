@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   include AppHelpers::Cart
   #authorize_resource
   def new
-  end
+  end 
   
   def create
     user = User.authenticate(params[:username], params[:password])

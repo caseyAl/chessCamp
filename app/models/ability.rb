@@ -14,7 +14,7 @@ class Ability
         can :read, Location
         can :show, Location
         can :read, Camp 
-        can :show, Camp 
+        can :show, Camp  
 
         can :update, Instructor do |i|
           instruct = User.all.map{|e| e}.select{|e| e.id == user.id}[0]
@@ -54,6 +54,7 @@ class Ability
           can :show, Camp
           can :create, Family
           can :create, Registration
+          can :create, Student
           can :update, User do |u|
             u.id == user.id 
           end
