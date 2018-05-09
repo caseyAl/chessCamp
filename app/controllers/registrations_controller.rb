@@ -34,6 +34,10 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def index
+    @registrations = Registration.all.alphabetical.paginate(:page => params[:registrations]).per_page(10)
+  end
+
 
 
   private

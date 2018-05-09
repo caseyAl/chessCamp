@@ -168,5 +168,38 @@
   .alert-box.alert-close {
     opacity: 0; }
 
+.pagination {
+    font-size: 16px;
+}
 
+.pagination > * {
+    margin-right: 0.1em;
+    padding: 0.3em 0.4em;
+}
+
+.pagination a:hover {
+
+    text-shadow: 1px 1px 1px #171717;
+}
+
+
+
+.pagination a:active {
+    text-shadow: none;
+    color: purple; 
+}
+
+.pagination a {
+  color: black;
+}
+
+.pagination .current {
+
+    text-shadow: 1px 1px 1px #171717;
+}
+
+.pagination .disabled {
+    
+
+}
 

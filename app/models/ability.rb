@@ -54,6 +54,11 @@ class Ability
           can :show, Camp
           can :create, Family
           can :create, Registration
+          can :update, User do |u|
+            u.id == user.id 
+          end
+
+          can :students, Camp
 
 
           can :show, User do |u|  

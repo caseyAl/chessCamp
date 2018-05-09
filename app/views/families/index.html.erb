@@ -20,7 +20,7 @@
     <% @familys.each do |family| %>
       <tr>
         <td><%= link_to family.family_name, family %></td>
-        <td> <%= family.parent_name %></td>
+        <td> <%= family.parent_first_name %></td>
         <td><%= number_to_phone family.user.phone %></td>
         <td><%= family.user.email %></td>
         <td><%= link_to 'Edit', edit_family_path(family), :class=>"btn waves-effect waves-light blue" %></td>

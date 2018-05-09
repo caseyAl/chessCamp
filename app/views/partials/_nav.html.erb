@@ -1,16 +1,21 @@
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper black">
     &nbsp&nbsp
-    <a href="/" class="brand-logo">A&M Chess Camp</a>
-    <ul class="right">
+        <ul class="right">
+      <li><%= link_to 'Logout', logout_path %></li>
+    </ul>
+    
+    <ul class="left">
       <li><%= link_to "Curriculums", curriculums_path %></li>
       <li><%= link_to "Camps", camps_path %></li> 
       <li><%= link_to "Instructors", instructors_path %></li>
       <li><%= link_to "Locations", locations_path %></li>
+      <li><%= link_to "Students", students_path %></li>
+      <li><%= link_to "Families", families_path %></li>
+      <li><%= link_to "Registrations", registrations_path %></li>
+
 
     </ul>
-    <ul class="right">
-      <li><%= link_to 'Logout', logout_path %></li>
-    </ul>
+
   </div>
-</nav>
+</nav> 

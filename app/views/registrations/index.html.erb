@@ -1,0 +1,34 @@
+ <p id="notice"><%= notice %></p>
+
+<% if @registrations.empty? %>
+  <h3>There are no registrations in the system at this time</h3>
+<% else %>
+  <h3>Registrations</h3>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Camp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= link_to registration.student.proper_name, student_path(registration.student) %></td>
+        <td><%= link_to registration.camp.name, camp_path(registration.camp) %></td>
+        <td><%= link_to 'Edit', edit_registration_path(registration), :class=>"btn waves-effect waves-light purple" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span class="paginate">
+  <%= will_paginate @registrations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next", :param_name => 'registrations' %>
+</span>
+
+    <% end %>
+
+<%= link_to 'New Registration', new_registration_path %>

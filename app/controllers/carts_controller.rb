@@ -3,7 +3,7 @@ class CartsController < ApplicationController
 	def index
 		@total_cost = calculate_total_cart_registration_cost
 	end
-
+ 
 	def add_to_cart
 		camp_id = params[:registration][:camp_id]
 		student_id = params[:registration][:student_id]
@@ -52,6 +52,6 @@ class CartsController < ApplicationController
 	end
 		
 	end
-
+ 
 
 end  

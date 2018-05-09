@@ -1,12 +1,11 @@
-<nav id="nav">
+<nav id="nav" class="black">
   <div class="container">
     <ul class="left hide-on-med-and-down">
-      <li><%= link_to 'My Account', families_path(@fam) %></li>
-      <li><%= link_to 'My Students', students_path %></li>
-      <li><%= link_to "Cart", carts_path %></li>
+      <li><%= link_to 'My Account', edit_user_path(current_user) %></li>
+      <li><%= link_to "Cart (#{session[:cart].length})" , carts_path %></li>
     </ul>
     <ul class="right">
       <li><%= link_to 'Logout', logout_path %></li>
     </ul>
   </div>
-</nav>
+</nav>  

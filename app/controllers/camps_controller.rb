@@ -9,8 +9,10 @@ class CampsController < ApplicationController
   def show
     @instructors = @camp.instructors.alphabetical
     @parent = Family.all.select{|e| e.user_id == current_user.id}[0]
-    @allKids = @parent.students
-    @students = @camp.students.all.select{|e| @allKids.include? e}
+    if @parent != nil
+      @allKids = @parent.students
+      @students = @camp.students.all.select{|e| @allKids.include? e}
+    end
   end
 
   def edit
