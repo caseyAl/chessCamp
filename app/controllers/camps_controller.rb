@@ -7,12 +7,14 @@ class CampsController < ApplicationController
   end
  
   def show
-    @instructors = @camp.instructors.alphabetical
-    @parent = Family.all.select{|e| e.user_id == current_user.id}[0]
-    if @parent != nil
-      @allKids = @parent.students
-      @students = @camp.students.all.select{|e| @allKids.include? e}
-    end
+    if current_user != nil 
+      @instructors = @camp.instructors.alphabetical
+      @parent = Family.all.select{|e| e.user_id == current_user.id}[0]
+      if @parent != nil
+        @allKids = @parent.students
+        @students = @camp.students.all.select{|e| @allKids.include? e}
+      end
+    end 
   end
 
   def edit
@@ -46,11 +48,11 @@ class CampsController < ApplicationController
   end
 
   def instructors
-    @instructors = Instructor.for_camp(@camp)
+   @instructors = Instructor.for_camp(@camp)
   end
 
   def students
-    @students = Student.for_camp(@camp)
+   @students = Student.for_camp(@camp)
   end
 
   private

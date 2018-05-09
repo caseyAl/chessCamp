@@ -1,9 +1,10 @@
-<nav id="nav">
+<nav id="nav" class="black">
   <div class="container">
     <ul class="left hide-on-med-and-down">
+      <li><%= link_to 'Home', home_path %></li>
       <li><%= link_to 'Camps', camps_path %></li>
       <li><%= link_to 'Curriculums', curriculums_path %></li>
-      <li><%= link_to 'My Account', edit_current_user_path %></li>
+      <li><%= link_to 'My Account', edit_user_path(current_user) %></li>
     </ul>
     <ul class="right">
       <li><%= link_to 'Logout', logout_path %></li>

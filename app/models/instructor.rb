@@ -1,7 +1,7 @@
 class Instructor < ApplicationRecord
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
-
+  mount_uploader :photo, PhotoUploader
   # relationships
   belongs_to :user
   has_many :camp_instructors

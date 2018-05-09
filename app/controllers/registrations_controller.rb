@@ -1,10 +1,11 @@
 class RegistrationsController < ApplicationController
   skip_before_action :verify_authenticity_token
   #authorize_resource
-  def new
+  #before_action :set_registration, [:show, :edit, :update, :destroy]
+  def new 
     @registration = Registration.new
-    @camp = Camp.find(params[:camp_id])
-    @student = Student.find(:student_id)
+    #@camp = Camp.find(params[:camp_id])
+    #@student = Student.find(params[:student_id])
   end
   
   def create
@@ -17,13 +18,13 @@ class RegistrationsController < ApplicationController
     #@registration.pay
     if @registration.save
       flash[:notice] = "Successfully registered for camp"
-      redirect_to camp_path(@camp)
+      redirect_to home_path
     else
       render action: 'new'
-    end 
+    end  
   end
 
- 
+  
   def destroy
     camp_id = params[:id]
     student_id = params[:id]
@@ -40,9 +41,15 @@ class RegistrationsController < ApplicationController
 
 
 
+
+
   private
     def registration_params
       params.require(:registration).permit(:camp_id, :student_id)
+    end
+
+    def set_registration
+      @registration = Registration.find([:id])
     end
 
 end

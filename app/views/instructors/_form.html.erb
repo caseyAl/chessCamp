@@ -1,4 +1,4 @@
-<%= simple_form_for(@instructor) do |f| %>
+<%= simple_form_for(@instructor, multipart: true) do |f| %>
   <%= f.error_notification %>
   <div class="row">
     <div class="form-inputs">
@@ -8,6 +8,7 @@
       <%# f.input :email, label_html: { class: 'active' } %>
       <%# f.input :phone, label_html: { class: 'active' } %>
       <%= f.input :user_id, label_html: { class: 'active' } %>
+      <%= f.file_field :photo %>
       <%= f.input :active %>
     </div>
   </div>

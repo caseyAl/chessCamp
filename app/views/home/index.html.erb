@@ -1,5 +1,5 @@
-
 <% if logged_in? && current_user.role?(:instructor) %>
+	<h4 align="center"> My Students </h4>
 	<% if @students == [] %>
 		<h4> You currently have no students </h4>
 	<% else %>
@@ -33,15 +33,10 @@
 
 <% elsif logged_in? && current_user.role?(:parent) %>
 	<%= render :partial => "partials/parentHome" %>
-	
-
+<% elsif logged_in? && current_user.role?(:admin) %>
+	<%= render :partial => "partials/adminHome" %>
 <% else %> 
 	<%= render :partial => "partials/guestHome" %>
-
- 
-	
-
-
 <%end%>
 
 

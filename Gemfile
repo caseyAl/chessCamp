@@ -75,6 +75,7 @@ gem 'simple_form', '3.5.0'
 # authorization gem
 # gem 'cancancan'
 gem 'cancancan', '2.1.2'
+gem 'carrierwave', '1.0.0'
 
 # Materialize and UI gems
 gem 'best_in_place', '~> 3.0.1'

@@ -2,6 +2,11 @@
   <div class="col s5">
     <%= render :partial => "instructor_details" %>
   </div>
+  <% if @instructor.photo_url.nil? %>
+    <p><%= image_tag('generic.png',:size => "1x1") %></p>
+  <% else %>
+    <p><%= image_tag(@instructor.photo_url, :size => "100x100") %></p>
+  <% end %>
   <div class="col s7">
     <%= render :partial => "partials/camps_list", locals: {camps: @upcoming_camps, state: "Upcoming"} %>
     <%= render :partial => "partials/camps_list", locals: {camps: @past_camps, state: "Past"} unless @past_camps.empty? %>

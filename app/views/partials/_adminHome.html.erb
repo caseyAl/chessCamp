@@ -1,0 +1,69 @@
+  <table>
+  <thead>
+    <tr>
+      <th>Total Revenue</th>
+      <th>Registrations</th>
+      <th>Active Camps</th>
+      <th>Active Students</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>$<%= @revenue %></td>
+        <td><%= @regs %></td>
+        <td><%= @activeCamps %></td>
+        <td><%= @activeStudents %></td>
+      </tr>
+  </tbody>
+</table>
+
+<hr>
+<div class="row">
+<div class="col s8 m8">
+<div class="center-aligned">
+<h3 align="center"> Instructors </h3>
+</div>
+  <ul class="collection">
+    <% @instructors.each do |instructor| %>
+    <li class="collection-item avatar">
+      <% if instructor.photo_url.nil? %>
+        <%= image_tag('generic.png', :class => "circle")%> 
+      <% else %>
+        <%= image_tag(instructor.photo_url, :class => :circle) %>
+      <% end %>
+      <span class="title"><%= link_to instructor.proper_name, instructor_path(instructor) %></span>
+      <p><%= instructor.user.phone %> <br>
+         <%= instructor.user.email %>
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <% end %>
+  </ul> 
+</div>
+
+  <h3 align="center"> Actions </h3>
+  <div class="center-aligned">
+    <div class="col s4 m4">
+      <div class="card-panel white">
+        <ul>
+          <li align="center"><%= link_to 'New Curriculum', new_curriculum_path, :class=>"btn waves-effect waves-light blue"%></li>
+          <br>
+          <li align="center"><%= link_to 'New Camp', new_camp_path, :class=>"btn waves-effect waves-light blue"%></li>
+          <br>
+          <li align="center"><%= link_to 'New Instructor', new_instructor_path, :class=>"btn waves-effect waves-light blue"%></li>
+          <br>
+          <li align="center"><%= link_to 'New Location', new_location_path, :class=>"btn waves-effect waves-light blue"%></li>
+          <br>
+          <li align="center"><%= link_to 'New Student', new_student_path, :class=>"btn waves-effect waves-light blue"%></li>
+          <br>
+          <li align="center"><%= link_to 'New Family', new_family_path, :class=>"btn waves-effect waves-light blue"%></li>
+          <br>
+          <li align="center"><%= link_to 'New Registration', new_registration_path, :class=>"btn waves-effect waves-light blue"%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+</div>

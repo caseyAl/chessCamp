@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :students
   resources :families
   resources :registrations
-  resources :carts
+  resources :carts 
 
 
 
@@ -43,7 +43,6 @@ Rails.application.routes.draw do
   post 'camps/:id/instructors', to: 'camp_instructors#create', as: :create_instructor
   delete 'camps/:id/instructors/:instructor_id', to: 'camp_instructors#destroy', as: :remove_instructor
 
-  
   get 'camps/:id/students', to: 'camps#students', as: :camp_students
   post 'camps/:id/students', to: 'camp_students#create', as: :create_student
   delete 'camps/:id/students/:student_id', to: 'camp_student#destroy', as: :remove_student

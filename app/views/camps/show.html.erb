@@ -16,13 +16,17 @@
     </div>
   </div>
 
-<% else %>
+<% elsif logged_in? && current_user.role?(:parent) %>
     <div class="row">
       <%= render :partial => "partials/parent_camp" %>
       <div class="col m6 s6">  
         <%= render :partial => "camp_students_vue" %>
       </div>
     </div>
+
+<%else%>
+  <%= render :partial => "camp_details" %>
+
 
 <% end %>
 

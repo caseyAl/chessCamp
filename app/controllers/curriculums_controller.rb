@@ -2,7 +2,7 @@ class CurriculumsController < ApplicationController
   before_action :set_curriculum, only: [:show, :edit, :update, :destroy]
   authorize_resource
   def index
-    @curriculums = Curriculum.all
+    @curriculums = Curriculum.all.alphabetical
   end
 
   def show

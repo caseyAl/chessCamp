@@ -1,6 +1,7 @@
 <nav id="nav" class="black">
   <div class="container">
     <ul class="left hide-on-med-and-down">
+      <li><%= link_to 'Home', home_path %></li>
       <li><%= link_to 'My Account', edit_user_path(current_user) %></li>
       <% if session[:cart] != nil %>
       	<li><%= link_to "Cart (#{session[:cart].length})" , carts_path %></li>

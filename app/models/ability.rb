@@ -12,7 +12,7 @@ class Ability
         can :read, Curriculum
         can :show, Curriculum
         can :read, Location
-        can :show, Location
+        can :show, Location 
         can :read, Camp 
         can :show, Camp  
 
@@ -26,7 +26,7 @@ class Ability
             u.id == user.id
           end
 
-        can :show, Student do |this_student|
+        can :read, Student do |this_student|
           instruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
           my_camps = instruct.camps
           my_students= []
@@ -38,10 +38,14 @@ class Ability
 
         can :read, Family do |this_family|
           curInstruct = Instructor.all.map{|e| e}.select{|e| e.user.id == user.id}[0]
-          my_students = curInstruct.camps.students
+          my_camps = curInstruct.camps
+          my_students= []
+          my_camps.each do |camp| 
+              my_students += camp.students  
+            end
           my_fams = []
           my_students.each do |stud|
-            my_fams += stud.family unless my_fams.include? stud.family
+            my_fams += [stud.family] unless my_fams.include? stud.family
           end
           my_families = my_fams.map(&:id)
           my_families.include? this_family.id 

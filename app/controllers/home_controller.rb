@@ -16,6 +16,13 @@ class HomeController < ApplicationController
       unless @fam == nil
         @kids = Student.for_fam(@fam.id).alphabetical.paginate(:page => params[:page]).per_page(12)
       end
+    elsif (logged_in? && current_user.role?(:admin))
+      @revenue = Registration.all.to_a.map{|e| e.camp.cost}.inject(0){|sum,x| sum + x }
+      @regs = Registration.all.to_a.length
+      @activeCamps = Camp.all.active.to_a.length
+      @activeStudents = Student.all.active.to_a.length
+      @instructors = Instructor.all.active.to_a
+      
 
       
     else
