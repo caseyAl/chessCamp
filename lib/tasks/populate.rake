@@ -224,16 +224,16 @@ namespace :db do
     puts "Created locations"
 
     # Step 4: Create some camps and assign to instructors
-    dates = [[Date.new(2018,6,11),Date.new(2018,6,15)],
-             [Date.new(2018,6,18),Date.new(2018,6,22)],
-             [Date.new(2018,6,25),Date.new(2018,6,29)],
-             [Date.new(2018,7,9),Date.new(2018,7,13)],
-             [Date.new(2018,7,16),Date.new(2018,7,20)],
-             [Date.new(2018,7,23),Date.new(2018,7,27)],
-             [Date.new(2018,7,30),Date.new(2018,8,3)],
-             [Date.new(2018,8,6),Date.new(2018,8,10)],
-             [Date.new(2018,8,13),Date.new(2018,8,17)],
-             [Date.new(2018,8,20),Date.new(2018,8,24)]]
+    dates = [[Date.new(2020,6,11),Date.new(2020,6,15)],
+             [Date.new(2020,6,18),Date.new(2020,6,22)],
+             [Date.new(2020,6,25),Date.new(2020,6,29)],
+             [Date.new(2020,7,9),Date.new(2020,7,13)],
+             [Date.new(2020,7,16),Date.new(2020,7,20)],
+             [Date.new(2020,7,23),Date.new(2020,7,27)],
+             [Date.new(2020,7,30),Date.new(2020,8,3)],
+             [Date.new(2020,8,6),Date.new(2020,8,10)],
+             [Date.new(2020,8,13),Date.new(2020,8,17)],
+             [Date.new(2020,8,20),Date.new(2020,8,24)]]
 
     dates.each do |starting, ending|
       ["am","pm"].each do |slot|
