@@ -1,9 +1,21 @@
-## 67-272: Chess Camp Solution to Phase 4 ##
+Chess Camp
 
-This is a basic solution for the course project in 67-272: Application Design and Development.  This repo contains a solution only to Phase 4 of the project and can be used to start phase 5.
+To run the web app locally, run the command "rails s" from the terminal once you are in the 'ChessCamp' directory.
 
-To set this up, clone this repository, run the `bundle install` command to ensure you have all the needed gems and then create the database with `rake db:migrate`.  If you want to populate the system with fictitious, but somewhat realistic data (similar to the data given in the spreadsheets in phase 1), you can run the `rake db:populate` command.  The populate script will create a series of curriculums, instructors and over 35 camps
+This web application is designed to be used by distinct user groups.
 
-Many objects are created with some element of randomness so you will get slightly different results each time it is run.  However, instructors and users are fixed.  If there were any users in this phase, all the users in the system have a password of 'secret'.  In terms of users there are two admins (Alex and Mark) and five instructor-level users (our five Head TAs).  The username for each will be their first name in all lowercase.
+Guests- Can register for an account and then begin adding students to their family. Afterwards they can register and add camps to their cart.
 
-Instructions for what needs to be done in this phase of the project can be found in the project write-ups found on the [67-272 course site](http://67272.cmuis.net/projects/).
+Administrators - Have the ability to register a student, parent, or instructor into the system. Can also create new camps and curriculums and assign instructors to specific camps. Login as an administrator using the following username and password...
+username: mark
+password: secret
+
+
+Parents: Have the ability to register their children for camps and checkout. They can also add students to their family. It's important to note that students can only be registered for camps to which their rating is appropriate (meaning the students rating must be between the min and max ratings for that specific camp). Login as a parent using the following username and password
+username: may
+password: secret
+
+
+Instructors: Have the ability to view the students they have been assigned to and the camps they are assigned to. Login as an instructor using the following username and password...
+username: rachel
+password: secret
