@@ -1,6 +1,12 @@
 Chess Camp
 
-To run the web app locally, run the command "rails s" from the terminal once you are in the 'ChessCamp' directory.
+Ensure that you have Ruby and SQLite (Version 3) installed. Once you are in the project directory, run the following commands from the terminal
+
+- "bundle install"
+- "rails db:migrate"
+- "rails db:populate" (this may take a minute)
+- "rails s" (This runs the app locally on http://localhost:3000/)
+
 
 This web application is designed to be used by distinct user groups.
 
